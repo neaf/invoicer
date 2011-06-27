@@ -6,6 +6,9 @@ GEM
       rest-client
     diff-lcs (1.1.2)
     git (1.2.5)
+    invoice_harvester (0.1.0)
+      nokogiri
+      rest-client
     jeweler (1.6.2)
       bundler (~> 1.0)
       git (>= 1.2.5)
@@ -31,6 +34,7 @@ PLATFORMS
 DEPENDENCIES
   blinksale
   bundler (~> 1.0.0)
+  invoice_harvester
   jeweler (~> 1.6.2)
   rcov
   rspec (~> 2.3.0)
