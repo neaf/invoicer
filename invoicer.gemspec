@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "invoicer.gemspec",
     "lib/invoice.rb",
     "lib/invoicer.rb",
     "lib/services/blinksale.rb",
