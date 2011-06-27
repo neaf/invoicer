@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "invoicer"
   gem.homepage = "http://github.com/neaf/invoicer"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Common API for managing invoices from different online accounting services.}
+  gem.description = %Q{Common API for managing invoices from different online accounting services.}
   gem.email = "tomasz@werbicki.net"
   gem.authors = ["Tomasz Werbicki"]
   # dependencies defined in Gemfile
