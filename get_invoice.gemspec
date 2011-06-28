@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{get_invoice}
-  s.version = "0.2.0"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Tomasz Werbicki"]
-  s.date = %q{2011-06-27}
+  s.date = %q{2011-06-28}
   s.description = %q{Common API for managing invoices from different online accounting services.}
   s.email = %q{tomasz@werbicki.net}
   s.extra_rdoc_files = [
@@ -31,10 +31,14 @@ Gem::Specification.new do |s|
     "lib/services/blinksale.rb",
     "lib/services/blinksale/invoice.rb",
     "lib/services/blinksale/invoice_manager.rb",
+    "lib/services/freshbooks.rb",
+    "lib/services/freshbooks/invoice.rb",
+    "lib/services/freshbooks/invoice_manager.rb",
     "lib/services/harvest.rb",
     "lib/services/harvest/invoice.rb",
     "lib/services/harvest/invoice_manager.rb",
     "spec/services/blinksale_spec.rb",
+    "spec/services/freshbooks_spec.rb",
     "spec/services/harvest_spec.rb",
     "spec/spec_helper.rb"
   ]
@@ -51,14 +55,18 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<invoice_harvester>, [">= 0"])
       s.add_runtime_dependency(%q<blinksale>, [">= 0"])
+      s.add_runtime_dependency(%q<ruby-freshbooks>, ["~> 0.4.0"])
       s.add_development_dependency(%q<rspec>, ["~> 2.3.0"])
+      s.add_development_dependency(%q<mocha>, ["~> 0.9.12"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.2"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
     else
       s.add_dependency(%q<invoice_harvester>, [">= 0"])
       s.add_dependency(%q<blinksale>, [">= 0"])
+      s.add_dependency(%q<ruby-freshbooks>, ["~> 0.4.0"])
       s.add_dependency(%q<rspec>, ["~> 2.3.0"])
+      s.add_dependency(%q<mocha>, ["~> 0.9.12"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.2"])
       s.add_dependency(%q<rcov>, [">= 0"])
@@ -66,7 +74,9 @@ Gem::Specification.new do |s|
   else
     s.add_dependency(%q<invoice_harvester>, [">= 0"])
     s.add_dependency(%q<blinksale>, [">= 0"])
+    s.add_dependency(%q<ruby-freshbooks>, ["~> 0.4.0"])
     s.add_dependency(%q<rspec>, ["~> 2.3.0"])
+    s.add_dependency(%q<mocha>, ["~> 0.9.12"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.2"])
     s.add_dependency(%q<rcov>, [">= 0"])
