@@ -4,8 +4,12 @@ GEM
     blinksale (0.1.0)
       nokogiri
       rest-client
+    builder (3.0.0)
+    crack (0.1.8)
     diff-lcs (1.1.2)
     git (1.2.5)
+    httparty (0.7.8)
+      crack (= 0.1.8)
     invoice_harvester (0.1.0)
       nokogiri
       rest-client
@@ -14,6 +18,7 @@ GEM
       git (>= 1.2.5)
       rake
     mime-types (1.16)
+    mocha (0.9.12)
     nokogiri (1.4.6)
     rake (0.9.2)
     rcov (0.9.9)
@@ -27,6 +32,9 @@ GEM
     rspec-expectations (2.3.0)
       diff-lcs (~> 1.1.2)
     rspec-mocks (2.3.0)
+    ruby-freshbooks (0.4.0)
+      builder (>= 2.1.2)
+      httparty (>= 0.5.0)
 
 PLATFORMS
   ruby
@@ -36,5 +44,7 @@ DEPENDENCIES
   bundler (~> 1.0.0)
   invoice_harvester
   jeweler (~> 1.6.2)
+  mocha (~> 0.9.12)
   rcov
   rspec (~> 2.3.0)
+  ruby-freshbooks (~> 0.4.0)

@@ -13,44 +13,46 @@ end
 describe Invoicer::HarvestInvoiceManager do
   let(:manager) { Invoicer::Harvest.new('test', 'test', 'test').invoices }
 
+  let(:invoices) do
+    [
+      mock('invoice',
+        :id => 1,
+        :number => "00001",
+        :total_amount => 20,
+        :due_amount => 10,
+        :issued_on => Date.today,
+        :due_on => Date.today + 30,
+        :currency => "USD"
+      ),
+      mock('invoice',
+        :id => 2,
+        :number => "00002",
+        :total_amount => 20,
+        :due_amount => 10,
+        :issued_on => Date.today,
+        :due_on => Date.today + 30,
+        :currency => "USD"
+      ),
+      mock('invoice',
+        :id => 3,
+        :number => "00003",
+        :total_amount => 20,
+        :due_amount => 10,
+        :issued_on => Date.today,
+        :due_on => Date.today + 30,
+        :currency => "USD"
+      )
+    ]
+  end
+
   describe "#all" do
     before(:each) do
-      invoices = [
-        mock('invoice',
-          :id => 1,
-          :number => "00001",
-          :total_amount => 20,
-          :due_amount => 10,
-          :issued_on => Date.today,
-          :due_on => Date.today + 30,
-          :currency => "USD"
-        ),
-        mock('invoice',
-          :id => 2,
-          :number => "00002",
-          :total_amount => 20,
-          :due_amount => 10,
-          :issued_on => Date.today,
-          :due_on => Date.today + 30,
-          :currency => "USD"
-        ),
-        mock('invoice',
-          :id => 3,
-          :number => "00003",
-          :total_amount => 20,
-          :due_amount => 10,
-          :issued_on => Date.today,
-          :due_on => Date.today + 30,
-          :currency => "USD"
-        )
-      ]
-
-      manager.service.harvester.stub!(:all).and_return(invoices)
+      manager.service.harvester.stubs(:all).returns(invoices)
     end
 
     it "passes params to Harvesb client" do
       params = { :status => "draft" }
-      manager.service.harvester.should_receive(:all).with(params).once
+      manager.service.harvester.expects(:all).with(params).returns(invoices).once
       manager.all(params)
     end
 
@@ -85,7 +87,7 @@ describe Invoicer::HarvestInvoiceManager do
         :currency => "USD"
       )
 
-      manager.service.harvester.stub!(:get).and_return(invoice)
+      manager.service.harvester.stubs(:get).returns(invoice)
     end
 
     let(:invoice) { manager.get(1) }
